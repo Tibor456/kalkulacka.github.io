@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type ="number" name="a" id="a">
+   
+<select name="kalkulacka" id="kalkulacka">
+ 
+    <option value="plus">+</option>
+    <option value="minus">-</option>
+     <option value="division">/</option>
+    <option value="multiplication">*</option>
+  <input type ="number" name="b" id="b">
+  <button id="clik" onclick="vypocitaj()">vypocitaj</button>
+ <p id="vysledok"></p>
+  <script>
+
+    let vysledky = [];
+ function vypocitaj(){
+
+    let vysledok = document.getElementById("vysledok");
+    let a = parseInt(document.getElementById("a").value);
+    let b = parseInt(document.getElementById("b").value);
+
+  switch(document.getElementById("kalkulacka").value){
+
+        case "plus":
+        vysledky.unshift(a + b);
+            break;
+
+            case "minus":
+            vysledky.unshift(a - b);
+            break;
+            
+            case "division":
+            vysledky.unshift(a / b);
+            break;
+            
+            case "multiplication":
+            vysledky.unshift(a * b);
+            break;
+
+  }
+  
+if(vysledky.length > 5){
+  vysledky.pop();
+}
+vysledok.innerText = JSON.stringify(vysledky);
+
+
+
+ }
+
+  </script>
+</body>
+</html>
